@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接</title>
+</head>
+<body>
+    <!-- 
+        超链接可以让我们从一个页面跳转到其他页面，或者是当前页面的其他位置
+        使用a 标签来定义超链接
+            属性： href 指定跳转的目标路径
+                    - 值可以是外部网站的地址
+                    target 用于指定超链接打开的位置
+                        可选值
+                            -self 默认值 在当前页面中打开超链接
+                            -blank 在一个新的标签中打开超链接
+        使用a标签定位到页面的其他位置
+            可以直接将超链接的href属性设置为#,这样点击超链接以后页面不会发生跳转，而是跳转到氮气页面的顶部的位置
+            可以跳转到页面的指定位置，只需将href属性设置 #目标元素的id属性值
+            在开发中可以将#作为超链接的路径的占位符使用
+                <a href="#">超链接</a>
+            在开发中可以使用javascript:;来作为href的属性，此时点击这个超链接什么也不会发生
+                <a href="javascript:;">超链接</a>
+
+        超链接也是行内元素 ，在a标签中可以嵌套除了自身以外的任何元素  
+        
+        相对路径
+            当我们需要跳转一个服务器内部的页面时，一般我们都会使用相对路径，相对路径都会使用. 或者..开头
+                ./
+                ../
+            ./可以省略不写，如果不写./也不写../则相当于写了./
+            ./表示当前文件所在的目录
+                - 在这里当前页面就是07hyperlink.html
+                - ./就等于07hyperlink.html所在的的目录
+            ../表示当前文件所在目录的上一级目录
+
+     -->
+     <a href="http://www.baidu.com">超链接</a>
+     <br>
+     <a href="06list.html">超链接2</a>
+     <br>
+     <a href="./06list.html">超链接3</a>
+     <br>
+     <a href="./source/test2.html">超链接4</a>
+     <br>
+     <a href="#bottom">回底部</a>
+     <br>
+     <a href="#middleP">去指定位置</a>
+     <br>
+     <a href="javascript:;">超链接</a>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p id="middleP"> 1111 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dignissimos facilis aliquid quae hic delectus iure magnam perferendis rem ab ipsum fugiat, illum similique eaque aliquam! Magnam maiores aut laboriosam.</p>
+
+    <a href="#" id="bottom">回到顶部</a>
+
+
+     
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音频和视频</title>
+</head>
+<body>
+    <!-- 
+        audio 标签用于向页面中引入一个外部的音频文件
+            音视频引入时，默认情况下不允许用户自己控制播放停止
+        属性
+            controls是否允许用户控制播放
+            autoplay音频文件是否自动播放 如果设置了autoplay则音乐打开也面试会自动播放
+            但是目前来讲大部分浏览器都不会自动对音乐进行播放
+            loop 是否循环播放
+        
+        除了通过src来指定外部文件的路径以外，还可以通过source来指定文件
+     -->
+</body>
+<!-- <audio src="./source/imgs/偏偏喜欢你 - 轻音乐网.mp3" controls></audio> -->
+
+<audio controls>
+    对不起，您的浏览器不支持播放音频
+    <source src="./source/imgs/偏偏喜欢你 - 轻音乐网.mp3">
+    <source src="./source/imgs/偏偏喜欢你 - 轻音乐网.ogg">
+    <embed src="./source/imgs/偏偏喜欢你 - 轻音乐网.mp3" type="audio/mp3" width="300" height="100">
+</audio>
+<br>
+<video controls="controls">
+    <source src="./source/imgs/猴王跳跳.mp4" > 
+    <source src="./source/imgs/movie.ogv" type="video/mp4">  
+    <embed src="./source/imgs/猴王跳跳.mp4" type="video/mp4" >
+</video>
+<br>
+
+<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=v0033av0fcb" allowFullScreen="true"></iframe>
+</html>
