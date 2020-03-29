@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关系选择器</title>
+    <style>
+        .border{
+            border: 1px solid black;
+            
+        }
+        /* 
+        为div的子元素span设置红色字体（为div直接包含的span设置一个字体颜色）
+
+        子元素选择器
+            作用：选中指定父元素的指定子元素
+            语法：父元素>子元素
+        */
+        /* div.box > span{
+            color: orange;
+        } */
+
+        /* div>p>span{
+            color: yellow;
+        } */
+        /* 
+        
+        
+
+        后代元素选择器
+            作用：选中指定元素内的所有后代元素
+            语法：祖先 后代
+        */
+        /* div span{
+            color:blue;
+        } */
+
+        /* 
+            选择下一个兄弟(紧挨着, 如果p和span中间有个div,那么此时的span也不会选中)
+                语法： 前一个 + 下一个
+            选择下面所有的兄弟
+                语法： 兄 ~ 弟
+         */
+        /* p + span{
+            color:red;
+        } */
+
+        p ~ span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        父元素
+            - 直接包含子元素的元素叫做父元素
+        子元素
+            - 直接被父元素包含的元素是子元素
+        祖先元素
+            - 直接或者间接包含后代元素的元素叫做祖先元素
+            - 一个元素的父元素也是它的祖先元素
+        后代元素
+            -直接或间接被祖先元素包含的元素叫做后代元素
+            - 子元素也是后代元素
+        兄弟元素
+            - 拥有相同父元素的元素是兄弟元素
+     -->
+    <div class="box border">
+        我是一个div 
+        <p>
+            我是div中的p元素
+            <span>我是p元素中的span</span>
+        </p>
+        <span>
+            我是div中的span元素
+        </span>
+    </div>
+    <span>
+        我是div中的外的span元素
+    </span>
+    <div class="border">
+        <p>
+            我是div中的p元素
+        </p>
+        <div></div>
+        <span>
+            我是div中的span元素
+        </span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素</title>
+    <style>
+        /* 
+            伪元素，表示页面中一些特殊的并不真实存在的元素（特殊的位置）
+                伪元素使用：：开头
+                ::first-letter表示第一个字母
+                ::first-line表示第一行
+                ::selection表示选中的内容
+                :: before 元素的开始
+                :: after 元素的最后
+                    -before和after必须结合content属性来使用，可以直接通过CSS添加文本,不过添加的文本鼠标是选不中的
+        */
+        p::first-letter{
+            color:red;
+            font-size: 50px;
+        }
+
+        p::first-line{
+            background-color: yellow;
+        }
+
+        p::selection{
+            background-color: green;
+        }
+        div::before{
+            content:"『";
+        }
+        div::after{
+            content:"』";
+        }
+    </style>
+</head>
+<body>
+    <div>How are you?</div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam labore molestias consectetur ad facere, doloremque iusto? Quam, officiis ut voluptatem temporibus enim eaque dolore voluptate autem laborum officia, assumenda sed!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam labore molestias consectetur ad facere, doloremque iusto? Quam, officiis ut voluptatem temporibus enim eaque dolore voluptate autem laborum officia, assumenda sed!
+
+    </p>
+</body>
+</html>
