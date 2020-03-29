@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片的列表</title>
+    <!-- 
+        注意点：如何去除第一个的上外边距和最后一个的下外边距（伪类）
+        1. 三个图片是可以点击的，是超链接
+        2. PC 端要重置样式
+        3. 样式书写的顺序
+        4. overflow:hidden设置以后，对于最后一个外边距可以忽略不考虑，
+            因为即使有溢出，那也被裁剪掉了，但也可以使用li:not(:last-child)设置
+        2. 布局最好是控制块级元素
+        
+     -->
+    <link rel="stylesheet" href="../重置样式表/reset.css">
+    <!-- <style>
+        .main{
+            width: 200px;
+            border:10px solid #888;
+        }
+        .main img{
+            width: 100%;
+            margin:10px 0;
+        }
+        .main img:first-of-type{
+            margin-top: 0;
+        }
+        .main img:last-of-type{
+            margin:0;
+        }
+    </style> -->
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        /* 
+            设置外部ul的样式
+                设置ul的宽度，高度
+                裁剪溢出内容
+         */
+        .img-list{
+            width: 190px;
+            height: 470px;
+            overflow:hidden;
+            /* 使ul在页面中居中（实际开发中不需要） */
+            margin:50px auto;
+        }
+        /* 设置li的外边距：注意在设置外边距的时候，最好不要直接给img（行内元素或者行内块元素）设置外边距，而是给Img所在的块级元素设置外边距 */
+        .img-list li:not(:last-child){
+            margin-bottom: 9px;
+        }
+        /* 设置图片的大小，宽高只需要改一个 */
+        .img-list img{
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- <div class="main">
+        <a href=""><img src="../imgs/Exercise/01/1.jpg" alt=""></a>
+        <a href=""><img src="../imgs/Exercise/01/2.jpg" alt=""></a>
+        <a href=""><img src="../imgs/Exercise/01/3.jpg" alt=""></a>
+    </div> -->
+    <ul class="img-list">
+        <li>
+            <a href="javascript:;">
+                <img src="../imgs/Exercise/01/1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="../imgs/Exercise/01/2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="../imgs/Exercise/01/3.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+</body>
+</html>

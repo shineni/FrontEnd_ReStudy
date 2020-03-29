@@ -18,12 +18,39 @@
                 边框（border），边框属于盒子边缘，边框里面属于盒子内部，除了边框都是盒子的外部，
                     边框的大小会影响到整个盒子的大小
                 要设置边框，至少需要设置三个样式：
-                    边框的宽度 border-width
-                    边框的颜色 border-color
-                    边框的样式 border-style
+                    边框的宽度 border-width ：可以用来指定四个方向边框的宽度，默认值是3个像素
+                        border-width值的情况
+                            四个值：上右下左（顺时针）
+                            三个值： 上（左右）下
+                            两个值：（上下）（左右）
+                            一个值：上下左右
+                        除了border-width还有一组border-xxx-width
+                            xxx可以是top right bottom left
+                            用来单独指定某一个边的宽度
+
+                    边框的颜色 border-color：用来指定边框的颜色，同样可以分别指定四个边的边框规则和border-width一样
+                    【边框的临界点是斜的，保证四个边框一样大】
+                    color 前景色，如果不设置border-color则color生效
+                    边框的样式 border-style：指定边框的样式
+                        solid 表示实线
+                        dotted 点状许仙
+                        dashed 虚线
+                        double 双线
+                border的简写属性，通过该属性可以同时设置边框所有的相关样式，没有顺序要求
+
+                除了border以外还有4个 border-xxx
+                    border-top 
+                    border-right
+                    border-bottom
+                    border-left
+                使用场景：对某一个边做特殊处理
+                border：10px red solid;
+                border-right:none;
+
             
             */
-            border:10px red solid;
+            color: red;
+           border-style:solid;
         }
     </style>
 </head>

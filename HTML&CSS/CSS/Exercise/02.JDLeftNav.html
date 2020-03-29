@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东的左侧导航栏</title>
+    <link rel="stylesheet" href="../重置样式表/reset.css">
+    <style>
+        body{
+            background-color: #bfa;;
+        }
+        .left-nav{
+            width: 190px;
+            height: 450px;
+            background-color: #fff;
+            margin:50px auto;
+        }
+        .left-nav .item{
+            height: 25px;
+            line-height: 25px;
+            padding-left:18px;
+            
+        }
+        .item:hover{
+            background-color: #d9d9d9;
+        }
+        .item a{
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+        }
+        .item a:hover{
+            color: #c81623;
+        }
+        .item span{
+            padding:0 2px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        1. 先分析结构，需要一个容器（nav(div) div(div) ul(div)）
+        2. 每个都是一个超链接
+        3. 给body定义一个背景色方便查看
+        4. 给菜单容器设置
+            宽度， padding，背景颜色, margin
+            给容器里内部的item
+                设置高度
+                设置鼠标移入高亮
+                文字垂直居中
+                    （要让一个文字在父元素中垂直居中，只需要将父元素的line-height 设置为一个和父元素的height 相同）
+                设置边距18px(如果使用margin-left，则会出现hover时，左边出现空白)
+                    【请问】设置边距会改变盒子的大小，这会会改变盒子的大小嘛？ 不会，因为没有指定固定的宽度，此时默认auto
+                设置字体： 14px #333 有下划线
+                斜杠/ 单独为他设置样式
+                设置超链接的hover颜色L#c81623
+     -->
+    <nav class="left-nav">
+            <div class="item">
+                <a href="#">家用电器</a>                
+            </div>
+            <div class="item">
+                <a href="#">手机</a><span>/</span>
+                <a href="#">运营商</a><span>/</span>
+                <a href="#">数码</a>
+            </div>
+            <div class="item">
+                <a href="#">电脑</a><span>/</span>
+                <a href="#">办公</a>
+            </div>
+            <div class="item">
+                <a href="#">家居</a><span>/</span>
+                <a href="#">家具</a><span>/</span>
+                <a href="#">家装</a><span>/</span>
+                <a href="#">厨具</a>
+            </div>
+            <div class="item">
+                <a href="#">男装</a><span>/</span>
+                <a href="#">女装</a><span>/</span>
+                <a href="#">童装</a><span>/</span>
+                <a href="#">内衣</a>
+            </div>
+            <div class="item">
+                <a href="#">美妆</a><span>/</span>
+                <a href="#">个户清洁</a><span>/</span>
+                <a href="#">宠物</a>
+            </div>
+            <div class="item">
+                <a href="#">女鞋</a><span>/</span>
+                <a href="#">箱包</a><span>/</span>
+                <a href="#">钟表</a><span>/</span>
+                <a href="#">珠宝</a>
+            </div>
+            <div class="item">
+                <a href="#">男鞋</a><span>/</span>
+                <a href="#">运动</a><span>/</span>
+                <a href="#">户外</a>
+            </div>
+            <div class="item">
+                <a href="#">房产</a><span>/</span>
+                <a href="#">汽车</a><span>/</span>
+                <a href="#">汽车用品</a>
+            </div>
+            <div class="item">
+                <a href="#">母婴</a><span>/</span>
+                <a href="#">玩具乐器</a>
+            </div>
+            <div class="item">
+                <a href="#">食品</a><span>/</span>
+                <a href="#">酒类</a><span>/</span>
+                <a href="#">生鲜</a><span>/</span>
+                <a href="#">特产</a>
+            </div>
+            <div class="item">
+                <a href="#">艺术</a><span>/</span>
+                <a href="#">礼品鲜花</a><span>/</span>
+                <a href="#">农资绿植</a>
+            </div>
+            <div class="item">
+                <a href="#">医药保健</a><span>/</span>
+                <a href="#">计生情趣</a>
+            </div>
+            <div class="item">
+                <a href="#">图书</a><span>/</span>
+                <a href="#">文娱</a><span>/</span>
+                <a href="#">电子书</a>
+            </div>
+            <div class="item">
+                <a href="#">机票</a><span>/</span>
+                <a href="#">酒店</a><span>/</span>
+                <a href="#">旅游</a><span>/</span>
+                <a href="#">生活</a>
+            </div>
+            <div class="item">
+                <a href="#">理财</a><span>/</span>
+                <a href="#">众筹</a><span>/</span>
+                <a href="#">白条</a><span>/</span>
+                <a href="#">保险</a>
+            </div>
+            <div class="item">
+                <a href="#">安装</a><span>/</span>
+                <a href="#">维修</a><span>/</span>
+                <a href="#">清洗</a><span>/</span>
+                <a href="#">二手</a>
+            </div>
+            <div class="item">
+                <a href="#">工业品</a>
+            </div>
+        </ul>
+
+    </div>
+</body>
+</html>

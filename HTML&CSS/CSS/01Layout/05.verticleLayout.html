@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直方向的布局</title>
+    <style>
+        /* 
+            垂直方向没有任何公式或者等式
+            默认情况下父元素的高度如果没有设置，则实际高度是被内容撑开的高度
+                如果设置了高度，那么设置多少就是多少
+                    出现问题：溢出
+                    解决方案： overflow
+                        overflow的可选值：
+                            visible 默认值 子元素会从父元素中溢出，在父元素外部的位置显示
+                            hidden 溢出内容将会被裁剪，不会显示
+                            scroll 生成两个滚动条，通过滚动条来查看完整的内容
+                            auto 根据需要生成滚动条
+                            overflow-x
+                            overflow-y
+         */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
