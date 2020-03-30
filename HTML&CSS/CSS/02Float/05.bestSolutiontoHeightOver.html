@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高度塌陷的最终解决方案</title>
+    <style>
+        /* 
+            解决方案一： 添加一个空的div,然后为其设置清除浮动[利用结构解决表现的问题，不算完美]
+            解决方案： 在父元素的最后添加一个块级元素，和box2是兄弟元素，并且让这个标签clear:both 
+                    利用伪元素在,在最后添加一个块级元素并清除浮动
+         */
+
+         .box1{
+             border: 10px red solid;
+         }
+         .box2{
+             width: 100px;
+             height: 100px;
+             background-color: #bfa;
+             float: left;
+         }
+         .box1::after{
+             content: "";
+             display: block; 
+             clear: both;
+         }
+         /* .box3{
+             clear: both;
+         } */
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+        
+        </div>
+        <!-- <div class="box3"></div> -->
+
+    </div>
+</body>
+</html>

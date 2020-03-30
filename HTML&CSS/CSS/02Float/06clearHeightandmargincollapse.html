@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高度塌陷和外边距重叠的解决方案</title>
+<style>
+    .box1{
+        width: 200px;
+        height: 200px;
+        background-color: #bfa;
+    }
+    .box2{
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        margin-top:30px;
+    }
+    /* 外边距重叠的两个条件：相邻的垂直方向
+        思想：用一个东西隔开box1和box2上边距
+    */
+/* 
+    .box1::before{
+        content: "";
+        display: table;
+        /* 可以隔开本身还不占地方 */
+    } */
+
+/* clearfix可以同时解决高度塌陷和外边距重叠问题，当你遇到这些问题时，直接使用clearfix */
+    .clearfix::before,
+    .clearfix::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+</style>
+</head>
+<body>
+   <div class="box1">
+       <div class="box2"></div>
+   </div> 
+</body>
+</html>

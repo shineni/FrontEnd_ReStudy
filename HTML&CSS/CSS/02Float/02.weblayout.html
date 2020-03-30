@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页布局</title>
+    <style>
+        /* 提取公共部分 */
+        header, main, footer{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            height: 150px;
+            background-color: #bbb;
+        }
+        main{
+            height: 600px;
+            background-color:peachpuff;
+            margin:10px auto;
+        }
+        footer{
+            height: 100px;
+            background-color: #888;
+        }
+/* 提取公共部分，竖着排列需要浮动 */
+        nav, article,aside{
+            float: left;
+            height: 100%;
+        }
+
+        nav{
+            width: 200px;
+            background-color: #bfa;
+        }
+        article{
+            width: 580px;
+            background-color: yellow;
+            margin: 0 10px;
+        }
+        aside{
+            width: 200px;
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <nav></nav>
+        <article></article>
+        <aside></aside>
+    </main>
+    <footer></footer>
+</body>
+</html>

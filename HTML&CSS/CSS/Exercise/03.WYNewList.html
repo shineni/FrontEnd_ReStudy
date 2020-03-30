@@ -5,29 +5,103 @@
     <title>网易新闻列表</title>
     <link rel="stylesheet" href="../重置样式表/reset.css">
     <style>
-        .main{
-            border: 10px solid #eee;
-            width: 350px;
+        body{
+            background-color: antiquewhite;
         }
-        img{
-            width: 100%;
+        a{
+            text-decoration: none;
         }
-        li{
-            margin:10px auto;
-            margin-left: 30px;
-           list-style-type: square;
-           font-size: 14px;
+         /* 设置news-wrapper */
+        .news-wrapper{
+            width: 300px;
+            height: 358px;
+            margin: 50px auto;
+            border-top: 1px solid #ddd;
+        }
+        /* 设置news-title */
+        .news-title{
+            /* 为了边框和文字宽度一致，需要将h2转为行内块元素 */
+            display: inline-block;
+            /* 设置高度 */
+            height: 40px;
+            /* 设置上边框 */
+            border-top: 1px solid red;
+            /* 通过margin-top将h2上移，盖住上边框 */
+            margin-top:-1px;
+            line-height: 40px;
+        }
+        /* 设置title中的超链接的样式 */
+        .news-title a{
+            color: #40406B;
+            font-weight: bold;
+        }
+        /* 设置图片的文字效果 */
+        .news-image{
+            height: 150px;          
+        }
+        /* 设置图片的文字效果 */
+        .news-image .img-title{
+            /* 向上移动文字 */
+            margin-top: -30px;
+            /* 设置字体颜色 */
+            color: #fff;
+            /* 设置padding */
+            padding-left: 30px;
+            /* 字体加粗 */
+            font-weight: bold;
+        }
+        /* 设置新闻列表 */
+        .news-list{
+            margin-top: 20px;
+        }
+        /* 设置li */
+        .news-list li{
+            margin-bottom: 17px;
+        }
+        /* 自动为每个元素添加一个小方块 */
+        .news-list li::before{
+           content: "■";
+           color:rgb(194, 191, 191);
+           font-size: 12px;
+           margin-right: 4px;
+        }
+
+        .news-list li a{
+            font-size: 14px;
+            color: #666;
+        }
+        /* 设置鼠标移入的效果 */
+        .news-list li a:hover{
+            color: red;
         }
     </style>
 </head>
 <body>
-    <div class="main">
-        <img src="../imgs/Exercise/03/1.jpeg" alt="">
-        <ul>
-            <li>乔治：我爱LA 喜欢和LBJ一起打球</li>
-            <li>格林：3年前降薪就在等KD 特制T恤嘲讽LBJ</li>
-            <li>塔克4000双鞋让保罗羡慕嫉妒 乔丹被震惊</li>
-            <li>CAB下赛季新赛制：常规赛4组循环 增至46轮</li>
+    <!-- 创建一个新闻的容器 -->
+    <div class="news-wrapper">
+        <!-- 创建标题标签 -->
+        <h2 class="news-title">
+            <a href="#">
+                体育
+            </a>
+
+        </h2>
+        <!-- 创建一个图片的容器 -->
+       <div class="news-image">
+           <a href="#">
+                <img src="../imgs/Exercise/03/1.jpeg" alt="">
+           </a>  
+            <!--创建图片标题  -->
+           <h3 class="img-title">
+               费德勒首负迪米 扶额头不满发挥
+           </h3>         
+       </div>
+        <!-- 新闻列表 -->
+        <ul class="news-list">
+            <li><a href="javascript：;">乔治：我爱LA 喜欢和LBJ一起打球</a></li>
+            <li><a href="javascript：;">格林：3年前降薪就在等KD 特制T恤嘲讽LBJ</a></li>
+            <li><a href="javascript：;">塔克4000双鞋让保罗羡慕嫉妒 乔丹被震惊</a></li>
+            <li><a href="javascript：;">CAB下赛季新赛制：常规赛4组循环 增至46轮</a></li>
 
         </ul>
     </div>

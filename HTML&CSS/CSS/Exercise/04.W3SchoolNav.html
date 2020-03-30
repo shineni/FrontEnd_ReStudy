@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3School Nav Bar</title>
+    <link rel="stylesheet" href="../重置样式表/reset.css">
+    <style>
+        /* 设置nav的大小 */
+        .nav{
+            width: 1210px;
+            height: 50px;
+            margin:50px auto;
+            background-color: #E8E7E3;
+            
+        }
+        .nav .item{
+            float: left;
+            line-height: 50px;
+        }
+        /* 给a设置宽高，目的为了让a 撑满父元素，这样点击任何一个div区域都能响应超链接 */
+        .nav .item a{
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding:0 39px;
+        }
+        .nav .item a:hover{
+            background-color: #3F3F3F;
+            color:#E8E7E3
+        }
+        .nav .item:last-child a{
+            padding:0 41px 0 41px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="item"><a href="javascript:;">HTML/CSS</a></div>
+        <div class="item"><a href="javascript:;">Browser Side</a></div>
+        <div class="item"><a href="javascript:;">Server Side</a></div>
+        <div class="item"><a href="javascript:;">Programming</a></div>
+        <div class="item"><a href="javascript:;">XML</a></div>
+        <div class="item"><a href="javascript:;">Web Building</a></div>
+        <div class="item"><a href="javascript:;">Reference</a></div>
+    </nav>
+</body>
+</html>

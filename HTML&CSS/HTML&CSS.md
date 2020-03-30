@@ -769,9 +769,16 @@ HSL值 和 HSLA值
                     则会换到第二行继续从左往右排列（书写习惯一直）
                 - 行内元素的默认宽度和高度都是被内容撑开
     - 不在文档流中（脱离文档流）
+    	- 块元素：
+            - 块元素不再独占页面的一行
+            - 脱离文档流以后，块元素的高度和高度默认都被内容撑开
+   		- 行内元素：
+        	- 行内元素脱离文档流以后会变成块元素，特点和块元素一样
 
-#### 2.2.1盒子模型
-- 2.2.1.1盒子模型概述（ 盒模型/盒子模型/框模型）
+    脱离文档流以后，不再需要区分块和行内元素了
+
+#### 2.2.2盒子模型
+- 2.2.2.1盒子模型概述（ 盒模型/盒子模型/框模型）
 	- CSS将页面中的所有元素都设置为一个矩形盒子
 	- 将元素设置为矩形盒子后，对页面的布局就变成不同的盒子摆放到不同的的位置
 	- 每个盒子都由以下几个部分组成：
@@ -883,7 +890,7 @@ margin-left + border-left + padding-left + width + padding-right + border-right 
 
 - 2.2.2.4 margin 相关问题（垂直外边距的重叠（折叠））
 
-    - 相邻的垂直方向外边距会发生重叠现象
+    - ***相邻***的***垂直方向***外边距会发生重叠现象
     - 兄弟元素
         - 兄弟元素间的相邻垂直外边距会取两者之间的较大值（两者都是正值）
         - 特殊情况：
@@ -893,8 +900,8 @@ margin-left + border-left + padding-left + width + padding-right + border-right 
     - 父子元素【父子的外边距折叠了】
         - 父子元素相邻外边距，子元素的回传给父元素（上外边距）
         - 父子外边距的折叠会影响到页面的布局，所以必须要进行处理
-            - 解决方案1：box3 加 padding , 将高度从父元素中减去
-            - 解决方案2： 给box3加边框，高度要重新计算
+            - 解决方案1：父元素 加 padding , 将高度从父元素中减去，使其外边距不发生重叠
+            - 解决方案2： 父元素，高度要重新计算，使其外边距不发生重叠
 
 - 2.2.2.5 行内元素的盒子模型
     - 行内元素不支持宽度和高度
@@ -924,26 +931,276 @@ margin-left + border-left + padding-left + width + padding-right + border-right 
         reset.css 直接去除浏览器的默认样式
         normalize.css 对样式进行了统一
 
+- 2.2.2.7 box-sizing & outline & box-shadow & box-radius
+	- box-sizing 用来设置盒子尺寸的计算方式（设置width和height的作用范围）
+		- 可选值
+			content-box 默认值，宽度和高度用来设置内容区域的大小
+            border-box 宽度和高度用来设置整个盒子可见框（包括内容区， padding以及border）的大小, width 和 height指的是内容区和内边距和边框的总大小
+```
+	 <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            padding:10px;
+            border:10px red solid;
+            box-sizing: content-box;
+      </style>
+    <div class="box1">
+        <span>hello</span>
+    </div>
+```
+![border-sizing.png](.\CSS\imgs\border-sizing.png)
+
+	- outline 用来设置元素的轮廓线，用法和border一模一样
+![outline.png](.\CSS\imgs\outline.png)
+
+	- box-shawdow 用来设置元素阴影效果，阴影不会影响页面布局, 默认是大小和元素相同的正下方区域
+		- 第一个值 左侧偏移量 设置阴影的水平位置，正值向右移动，负值向左移动
+        - 第二个值 垂直偏移量 设置阴影的垂直位置，正值向下移动，负值向上移动
+        - 第三个值，阴影的模糊半径，值越大越模糊
+        - 第四个值，阴影的颜色（透明）
+```
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, .3);
+```
+![box-shadow.png](.\CSS\imgs\box-shadow.png)
+
+	- border-radius:用来设置圆角 ,圆角设置圆的半径大小，
+        - border-top-left-radius
+        - border-top-right-radius
+        - border-bottom-left-radius
+        - border-bottom-right-radius
+
+        - border-radius:可以分别指定四个角的圆角
+        四个值：左上 右上 右下 左下
+        三个值：左上 右上/左下 右下
+        两个值：左上/右下 右上/左下
+
+      **  将元素设置为一个圆形**
+       ` border-radius:50%;`
+      **  将元素设置为一个20px**， 从四个顶点出发，找到边长为20px正方形的对角顶点，并以它为圆心，20px为半径绘制而成的
+       ` border-radius:20px;`
+![border-radius.png](.\CSS\imgs\border-radius.png)
+![border-radius-circle.png](.\CSS\imgs\border-radius-circle.png)
+
+#### 2.2.3 浮动
+##### 2.2.3.1 浮动概述
+通过浮动可以使一个元素向其父元素的左侧或者右侧移动,使用float属性来设置元素的浮动
+float属性的可选值：
+- none:默认值 元素不浮动
+- left： 元素向左浮动
+- right： 元素向右浮动
+
+**注意，元素设置浮动以后，水平布局的等式便不需要强制成立**
+
+元素设置浮动以后，会完全从文档流中脱离，不再占用文档流的位置，所以元素下边的还在文档流中的元素会自动向上移动
+
+**浮动的特点：**
+- 1.浮动元素会完全脱离文档流，不会占据文档流中的位置
+- 2.设置浮动以后元素会向父元素的左侧或者右侧移动
+- 3.浮动元素默认不会从父元素中移出(高度塌陷问题就是浮动元素从父元素中移出的情况)
+- 4.浮动元素向左或者向右移动时，不会超过它前边的其他浮动元素
+- 5.如果浮动的元素的上边是一个没有浮动的元素，则浮动元素无法上移
+- 6.浮动元素不会超过它上边的浮动的兄弟元素，最多最多就是和他一样高
+
+**浮动的特点2：**
+- 1.浮动元素不会盖住文字，文字会自动环绕在浮动元素的周围，所以我们可以利用浮动来设置文字环绕图片的效果
+- 2.元素设置浮动以后，将会从文档流中脱离，从文档流中脱离以后，元素的一些特点也会发生变化
+
+脱离文档流以后：
+- 块元素：
+    - 1.块元素不再独占页面的一行
+    - 2.脱离文档流以后，块元素的高度和高度默认都被内容撑开
+- 行内元素：
+	- 行内元素脱离文档流以后会变成块元素，特点和块元素一样
+
+
+	简单总结：
+    	1. 浮动的目前来讲它的主要作用就是让页面中的元素可以水平排列，通过浮动可以制作一些水平方向的布局
+    	2. 脱离文档流以后，不再需要区分块和行内元素了
+    	3. 浮动出现的初衷是实现文字环绕效果的，也就是说浮动元素不会盖住文字
+
+##### 2.2.3.2 BFC
+BFC 块级格式化环境，相当于元素变成了独立的区域，浮动是脱离文档流的，在空间上造成一种重叠现象，BFC就是为了在俯视图上不出现重叠，换言之，在标准文档流中为该元素空出它的位置，让它从表现上好像是回归了文档流
+
+- BFC是CSS中的隐藏属性，可以为一个新的元素开启BFC
+    开启BFC该元素会变成一个独立的布局区域
+    - 元素开启BFC后的特点
+    1.开启BFC的元素不会被浮动元素所覆盖
+    2.开启BFC的元素子元素和父元素的外边距不会重叠
+    3.开启BFC的元素可以包含浮动的子元素
+
+    - 可以通过一些特殊方式开启元素的BFC
+    1.设置父元素的浮动（不推荐）
+    2.将元素设置为行内块元素（不推荐）
+    3.将元素的overflow设置为非visible的值
+        - 常用方式，为元素设置overflow:hidden 开启BFC以使其包含
 
 
 
+##### 2.2.3.3 高度坍塌问题
+![高度坍塌.png](.\CSS\imgs\高度坍塌.png)
 
+高度坍塌问题：【如果父元素指定固定高度，那么如果内容少则会出现大部分空白区域，如果内容多，则会溢出】
+在浮动布局中，父元素的高度默认是被子元素撑开的，当子元素浮动后，他会完全脱离文档流，子元素从文档流中脱离，将会无法撑起父元素的高度，导致父元素高度丢失，父元素高度丢失以后，其下的元素会自动上移，导致页面布局混乱
+所以高度塌陷是浮动布局中比较常见的一个问题，这个问题我们必须进行处理，解决方案如下
+- 为父元素设置固定的高度【不推荐】
+- BFC
+    ```
+    <head>
+        <meta charset="UTF-8">
+        <title>BFC</title>
+        <style>
+            .outer{
+                border:10px solid red;
+                /* overflow: hidden; */
+                /* float: left; */
+                background-color: orange;
+            }
 
+            .inner{
+                width: 100px;
+                height: 100px;
+                background-color: #bfa;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="outer">
+            <div class="inner"></div>
+        </div>
+        <div style="width: 100px;height: 100px;background-color: yellow;">
 
+        </div>
+    </body>
+    ```
 
+##### 2.2.3.4 清除浮动的方式
+```
+<head>
+    <meta charset="UTF-8">
+    <title>clear</title>
+    <style>
+        div{
+            font-size: 50px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bbffaa;
+            float: left;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+            float: right;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+             clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+```
+ 由于box1，box2的浮动，导致box3位置上移,也就是box3受到了box1浮动的影响，位置发生了变化
+ 如果我们不希望某个元素因为其他元素浮动的影响而改变位置，可以通过clear属性来清除浮动元素对当前元素所产生的影响
 
+clear
+- 作用:清除浮动元素对当期元素所产生影响
+- 可选值
+left 清除左侧浮动对当前元素的影响
+right 清除右侧浮动对当前元素的影响
+both 清除两侧中最大影响的那侧
 
+    	原理：清除浮动以后，浏览器会自动为元素添加一个浮动元素高度大小的上外边距，以使其位置不受其他元素的影响
 
+##### 2.2.3.5 高度坍塌问题的解决方案
+- 解决方案一： 添加一个空的div,然后为其设置清除浮动[利用结构解决表现的问题，不算完美]
+- 解决方案： 在父元素的最后添加一个块级元素，和box2是兄弟元素，并且让这个标签clear:both,利用伪元素在,在最后添加一个块级元素并清除浮动
 
+```
+<head>
+    <meta charset="UTF-8">
+    <title>高度塌陷的解决方案</title>
+    <style>
+         .box1{
+             border: 10px red solid;
+         }
+         .box2{
+             width: 100px;
+             height: 100px;
+             background-color: #bfa;
+             float: left;
+         }
+         .box1::after{
+             content: "";
+             display: block;
+             clear: both;
+         }
+         /* .box3{
+             clear: both;
+         } */
 
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+        </div>
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
 
+```
+##### 2.2.3.6 外边距重叠问题
+外边距重叠的两个条件：相邻的 垂直方向
+思想：用一个东西隔开box1和box2上边距
+```
+<head>
+    <meta charset="UTF-8">
+    <title>高度塌陷和外边距重叠的解决方案</title>
+<style>
+    .box1{
+        width: 200px;
+        height: 200px;
+        background-color: #bfa;
+    }
+    .box2{
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        margin-top:30px;
+    }
+    .box1::before{
+        content: "";
+        display: table;
+        /* 可以隔开本身还不占地方 */
+    }
+</style>
+</head>
+<body>
+   <div class="box1 clearfix">
+       <div class="box2"></div>
+   </div>
+</body>
+```
 
-
-
-
-
-
-
-
-
-
+**★★★★★★★★★★★★★★★  如何完美解决外边距重叠和高度坍塌两个问题？★★★★★★★★★★★★★★★★★★★★★★**
+```
+/* clearfix可以同时解决高度塌陷和外边距重叠问题，当你遇到这些问题时，直接使用clearfix */
+    .clearfix::before,
+    .clearfix::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+```
