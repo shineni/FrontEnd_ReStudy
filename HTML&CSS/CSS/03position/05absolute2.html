@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bbffaa;
+            position: relative;
+        }
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color:orange;
+            margin: auto;
+            /* 
+                水平布局
+left + margin-left + border-left + padding-left + width +padding-right +border-right + margin-right + right = 包含块的内容区的宽度           
+            -- 当我们开启了绝对定位以后
+                水平方向的布局等式就需要添加Left 和 right两个值
+                    此时规则和之前一样，知识添加了两个值
+                        当发生过度约束：
+                            如果9个值没有auto 则自动调整right值使等式满足
+                            如果有auto,则自动调整auto的值以使等式满足
+                    可设置auto的值
+                        margin width left right
+                    - 因为left 和right 的值默认，所以如果不知道Left和right
+                        则等式不满足时，会自动调整这两个值，如果需要Margin auto使其居中，则必须要将left和right设值为0
+
+                 垂直方向布局的等式也必须要满足
+                    top + margin-top/bottom + padding-top/bottom + border-top/bottom + right = 包含块的内容区的高度 
+            
+            【如何让元素在包含块水平垂直居中】
+            1、设置 bottom top right left 都为0 
+            2. 将Margin是这为 auto
+             */
+             position: absolute;
+             right: 0; 
+             left:0;
+             bottom: 0;
+             top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

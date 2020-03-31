@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 16px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bbffaa;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 
+
+                    固定定位
+                        - 当元素的position属性值为fixed时则开启了元素的绝对定位
+                        - 固定定位也是一种绝对定位，所以固定丁威迪额大部分特点都和绝对定位一样
+                            唯一不同的是固定定位永远参照与浏览器的视口进行定位
+                            固定定位的元素不会随网页的滚动条滚动
+             */
+             position: absolute;
+             left:0;
+              top :0;
+
+        }
+        
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color:yellow;
+             }
+             .box4{
+            width: 600px;
+            height: 600px;
+            background-color:purple;
+            /* position: relative; */
+             }
+             .box5{
+            width: 400px;
+            height: 400px;
+            background-color:red;
+                /* position: relative; */
+             }
+    </style>
+</head>
+<body>
+    <div class="box1">div 1 </div>
+    <div class="box4">
+        div 4
+        <div class="box5"> div 5
+            <div class="box2"> div 2</div>
+        </div>
+    </div>
+
+    <div class="box3"> div 3 </div>
+</body>
+</html>

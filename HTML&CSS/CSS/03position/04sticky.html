@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 16px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bbffaa;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 
+
+                    粘滞定位【一般不用，因为兼容性不太好】
+                        - 当元素的position属性值为sticky时则开启了元素的粘滞
+                        - 粘滞定位和相对定位的特点基本一致
+                            不同的是粘滞定位可以在元素到达某个位置时将其固定
+             */
+             position: absolute;
+             left:0;
+              top :0;
+
+        }
+        
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color:yellow;
+             }
+             .box4{
+            width: 600px;
+            height: 600px;
+            background-color:purple;
+            /* position: relative; */
+             }
+             .box5{
+            width: 400px;
+            height: 400px;
+            background-color:red;
+                /* position: relative; */
+             }
+    </style>
+</head>
+<body>
+    <div class="box1">div 1 </div>
+    <div class="box4">
+        div 4
+        <div class="box5"> div 5
+            <div class="box2"> div 2</div>
+        </div>
+    </div>
+
+    <div class="box3"> div 3 </div>
+</body>
+</html>
