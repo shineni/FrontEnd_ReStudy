@@ -1310,3 +1310,151 @@ top + margin-top/bottom + padding-top/bottom + border-top/bottom + right = 包�
     - 元素的层级越高越优先显示
     - 如果元素的层级一样，则优先显示靠下面的元素
     - 祖先元素的层级再高也不会盖住后代元素
+
+#### 2.2.5 字体和背景
+##### 2.2.5.1 字体
+- 字体相关的样式
+    - color 用来设置字体颜色
+    - font-size 字体大小
+        - font-size相关的单位
+        	- em 相对于当前元素的一个font-size 16px
+        	- rem 相对于根元素的一个font-size
+    - font-family 字体族（字体的格式）
+        可选值：
+            serif 衬线字体
+            san-serif 非衬线字体
+            monospace等宽字体
+                - 指定了字体的类别，浏览器会自动使用该类别下的字体
+        - font-family 可以同时指定多个字体，多个字体建使用，隔开
+            - 字体生效时优先使用第一个，第一个无法使用则使用第二个，以此类推
+            - 一般如果有空格或者特殊字符我们需要加一个引号引起来
+
+```
+            font-family: "Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+        - 也可以使用@font-face 引入样式
+```
+
+
+- ** 【如何引入字体】**
+	- font-family
+```
+font-family: 'Courier New', Courier, monospace;
+```
+	- 使用 @font-face
+
+```
+    <head>
+        <style>
+
+            @font-face{
+                font-family: 'myfont';
+                src: url('./font/ZCOOLKuaiLe-Regular.ttf');
+            }
+            p{
+                color:red;
+                font-size: 40px;
+                font-family: 'myfont';
+            }
+        </style>
+    </head>
+    <body>
+        <p>今天天气真不错</p>
+    </body>
+```
+##### 2.2.5.1 图标字体
+字体的优点：
+    1. 矢量，不失真
+    2. 字体可以随便切换颜色
+    3. 字体文件比较小
+
+- 图标字体（icon font）
+    - 在网页中经常需要使用一些图标，可以通过图片来引入图标
+        但是图片大小本身比较大，并且非常不灵活
+    - 所以在使用图标是，我们还可以将图标直接设置为字体
+        然后通过font-face的形式来对字体进行引入
+    - 这样我们就可以通过字体的形式来使用图标
+
+fontawsome 使用步骤
+    1. 下载 https://fontawesome.com
+    2.解压
+    3. 将css和webfonts移动到项目中
+    4. 将all.css引入到温昂也中
+    5. 使用图标字体
+        - 直接使用通过类名来使用图标字体
+            class="fas fa-bell"
+            class="fab fa-accessible-icon"
+
+- 图标字体的使用
+1.通过类
+2.通过伪元素
+3.通过实体
+
+```
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        /* 用法2：伪元素 */
+        li::before{
+            content: "\f1b0";
+            /* fbs
+            font-family: 'Font Awesome 5 Brands'; */
+            font-family: 'Font Awesome 5 Free' ;
+            font-weight: 900; 
+            /* font-family 和font-weight要一起粘贴过来才生效 */
+            color: blue;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>锄禾日当午</li>
+        <li>汗滴禾下土</li>
+        <li>谁知盘中餐</li>
+        <li>粒粒皆辛苦</li>
+    </ul>
+<!--
+    用法3：
+        通过实体来使用图标字体
+            &#x图标编码;
+ -->
+    <span class="fas">&#xf0f3;</span>
+</body>
+```
+- 阿里图标的使用图
+![阿里图标字体的使用.png](.\CSS\imgs\阿里图标字体的使用.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

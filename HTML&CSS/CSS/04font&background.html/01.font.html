@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体</title>
+    <style>
+
+        @font-face{
+            font-family: 'myfont';
+            src: url('./font/ZCOOLKuaiLe-Regular.ttf');
+        }
+
+
+
+        p{
+            color:red;
+            font-size: 40px;
+            /* 
+                字体相关的样式
+                    color 用来设置字体颜色
+                    font-size 字体大小
+                        和font-size相关的单位
+                        em 相对于当前元素的一个font-size 16px
+                        rem 相对于根元素的一个font-size
+                    font-family 字体族（字体的格式）
+                        可选值：
+                            serif 衬线字体
+                            san-serif 非衬线字体
+                            monospace等宽字体
+                                - 指定了字体的类别，浏览器会自动使用该类别下的字体
+                        - font-family 可以同时指定多个字体，多个字体建使用，隔开
+                            - 字体生效时优先使用第一个，第一个无法使用则使用第二个，以此类推
+                            - 一般如果有空格或者特殊字符我们需要加一个引号引起来
+
+                        font-family: "Microsoft YaHei", "Heiti SC", tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
+                    - 也可以使用@font-face 引入样式
+             */
+             /* font-family: 'Courier New', Courier, monospace; */
+             font-family: 'myfont';
+        }
+    </style>
+</head>
+<body>
+    <p>今天天气真不错</p>
+</body>
+</html>
