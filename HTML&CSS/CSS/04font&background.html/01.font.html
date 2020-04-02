@@ -37,7 +37,33 @@
                     - 也可以使用@font-face 引入样式
              */
              /* font-family: 'Courier New', Courier, monospace; */
-             font-family: 'myfont';
+             /* font-family: 'myfont'; */
+
+             /* 
+                font可以设置字体相关的所有属性
+                    语法：
+                        font (字体加粗 字体样式 【如果不写默认值都是normal】)字体大小/行号 字体族
+                        行号 可以省略不写 如果不写则使用默认值
+ font: bold italic 50px/3 'Courier New', Courier, monospace;
+                
+             
+              */
+
+              font: bold italic 50px/3 'Courier New', Courier, monospace;
+              border: 10px solid #bfa;
+
+              /* 
+                font-weight 字重 字体的加粗
+                    可选值
+                        normal 默认值 不加粗
+                        bold 加粗
+                        100-900 九个级别（没什么用）
+                font-style 字体的风格
+                    可选值
+                        normal 正常的
+                        italic 斜体               
+               */
+               font-weight:bold;
         }
     </style>
 </head>

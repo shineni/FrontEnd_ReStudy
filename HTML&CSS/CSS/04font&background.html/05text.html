@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本</title>
+    <style>
+        div{
+            width: 600px;
+            border: 1px solid red;
+            font-size: 50px;
+            /* 
+                text-align 文本的水平对其
+                    可选值
+                        left 左侧对其
+                        right 右对齐
+                        center 居中对齐
+                        justify 两端对齐
+             */
+             /* text-align: justify; */
+
+        }
+        span{
+            border: 1px solid blue;
+            font-size: 20px;
+            /* 
+                vertical-align 设置元素垂直对齐的方式
+                    可选值
+                        baseline 默认值 基线对齐
+                        top  顶部对齐(子元素顶部和父元素顶部对齐)
+                        bottom底部对齐(子元素底部和父元素底部对齐)
+                        middle 居中对齐【与子元素的中线对齐】
+
+                图片是一个替换元素，默认是基线对齐，所以底部有个缝隙，只要将verticle-align设置为不是baseline就行了
+             */
+             vertical-align:top;
+        }
+
+        .pic{
+            border: 1px solid red;
+        }
+
+        /* 
+
+            text-decoration 设置文本修饰
+                可选值
+                    none 什么都没有
+                    underline 下划线
+                    line-through 删除线
+                    overline 上划线
+                    
+            如何设置单行文字多出部分用省略号表示
+                1. 首先要设置单行文字（不换行） white-space:normal;
+                2. 多余部分需要裁剪掉    overflow:hidden;
+                3. 省略号       text-overflow: ellipsis;
+
+            white-space设置网页如何处理空白
+                可选值：
+                    normal 正常
+                    nowrap 不换行
+                    pre 保留空白
+        
+         */
+         div{
+             white-space: nowrap;
+             overflow: hidden;
+             text-overflow: ellipsis;
+         }
+    </style>
+</head>
+<body>
+    <div>
+        今天天气真不错
+        <span>
+            真不错
+        </span>
+        !
+    </div>
+    <div class="pic">
+        <img src="./img/an.jpg" alt="">
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur beatae modi praesentium pariatur veniam itaque dolorum deleniti voluptates perferendis fugiat asperiores placeat, recusandae, enim, aliquid omnis eveniet corrupti porro voluptatem.
+    </div>
+</body>
+</html>
