@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JD导航条</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="../重置样式表/reset.css">
+    <!-- 引入图标字体 -->
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        .clearfix::before,
+        .clearfix::：after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* 设置字体在body中设置，因为会对页面中所有内容都生效，但是颜色不要在此处设置 */
+        body{
+            font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        }
+        /* 设置外围容器的样式 */
+        .nav-container{
+            /* 设置宽度 */
+            width: 100%;
+            /* 设置背景颜色 */
+            background-color: #E3E4E5;
+            /* 设置高度和行高，设置行高为了使其垂直居中 */
+            height: 30px;
+            line-height: 30px;
+            /* 设置边框 */
+            border: 1px solid #DADCE0;
+        }
+        .nav-content{
+            width: 1190px;
+        /* 设置水平居中 */
+            margin:0 auto;
+            position: relative;
+        }
+        .location{
+            float: left;
+            position: relative;
+        }
+        .location i{
+            font-size: 14px;
+            color: #F10215;
+        }
+        .location .city-list{
+            /* display: none; */
+            width: 320px;
+            height: 436px;
+            background-color: #fff;
+            border:1px solid rgb(204,204,204);
+            /* 我们不希望下拉框占地方，所以我们需要设置其绝对定位，使其不占据页面的位置 */
+            position: absolute;
+            top: 29px;
+            /* 设置阴影 */
+            box-shadow: 0 2px 2px rgba(0,0,0,.2);
+            z-index: 999;
+
+        }
+
+        .current-city{
+            padding:0 10px;
+            padding-bottom: 1px;
+            z-index: 9999;
+        }
+
+        .location:hover{
+            border: 1px 1px 0 1px solid rgb(204,204,204);
+            background-color: white;
+        }
+/* 当鼠标移入Loacation时，让city-list显示。【注意】hover一定要给父元素 */
+        .location:hover .city-list{
+            display: block;
+           
+        }
+        .shortDes{
+            float: right;
+        }
+        .shortDes li{
+            float: left;
+        }
+        /* 设置字体的样式 */
+        .shortDes a,
+        .shortDes span,
+        .shortDes i{
+            color:#999;
+        }
+        /* 设置hover的效果以及字体颜色 */
+        .location span:hover,
+        .shortDes a:hover,
+        .shortDes a.highlight{
+            color: #F10215;
+        }
+/* 设置分割线:设置一个块元素，然后背景设置一个颜色 */
+        .shortDes .line{
+            height: 10px;
+            width: 1px;
+            background-color:#ccc;
+            margin:12px 12px;
+        }
+        /* 设置下拉框的外边距 */
+        .desItem i{
+            margin: 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 创建外围容器 -->
+    <div class="nav-container ">
+        <!-- 创建内部容器 -->
+        <div class="nav-content clearfix">
+            <!-- 左侧菜单 -->
+            <div class="location">
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>上海</span>
+                </div>
+                <div class="city-list">
+
+                </div>
+
+            </div>
+            <!-- 右侧菜单 -->
+            <ul class="shortDes">
+                <li class="desItem">
+                    <a href="javascript:;">你好, 请登录</a>
+                    <a href="javascript:;" class="highlight">免费注册</a>
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <a href="javascript:;">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <a href="javascript:;">京东会员</a>
+                    
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <a href="javascript:;" class="highlight">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li class="desItem">
+                    <span>手机京东</span>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

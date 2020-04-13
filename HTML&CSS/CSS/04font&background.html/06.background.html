@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        .box1{
+            width: 400px;
+            height: 400px;
+            /* background
+                - background-color 设置背景颜色
+                - background-image 设置背景图片
+                    【注意】路径不能直接写要套上url(),里面可以写引号也可以不写
+                    可以同时设置背景颜色和背景图片，这样别境颜色将会称为图片的背景色
+                        - 如果背景的图片小于元素的大小，则背景图片会自动在元素中平铺，将元素填满
+                        - 如果背景图片大于元素，将回一个部分背景无法完全显示
+                        - 如果背景图片和元素一样大，则会正常显示
+                - background-repeat 设置背景图片的重复样式
+                    可选值
+                        repeat 默认值，背景将会沿着x轴和y轴方向重复
+                        repeat-x 沿着x轴方向重复
+                        repeat-y 沿着y轴方向重复
+                        no-repeat 背景图片
+                - background-positon 用来这只背景图片的位置
+                    设置方式：
+                        通过top left right bottom center几个表示方位的词来设置背景图片的位置(坐标)
+                            使用方位词时必须要同时指定两个值，如果只写一个则默认另外一个的值是center
+                        通过偏移量来指定背景图片的位置
+                            水平方向的偏移量 垂直方向的偏移量
+                - background-clip 用来设置背景的范围
+                    可选值：
+                        border-box 默认值，背景会出现在边框的下面
+                        padding-box 背景不会出现在边框，只出现内容区和内边距区
+                        content-box 背景只会出现在内容区
+                - background-origin 用来设置背景图片的偏移量计算的原点
+                    可选值：
+                        padding-box 默认值，background-positon从内边距处开始计算
+                        content-box 背景图片的偏移量从内容区处计算
+                        border-box 背景图片的偏移量从边框处开始计算
+                - background-size 设置背景图片的大小（类比图片的宽高）
+                        第一个值表示宽度
+                        第二个值表示高度
+                            - 如果只写一个，则第二个默认值是auto
+
+                        cover 图片比例不变，将元素铺满
+                        contain 图片比例不变，将图片在元素中完整显示
+                - background-attachment 设置背景图片是否跟随元素移动
+                    可选值
+                        scroll 默认值 背景图片会跟随元素移动
+                        fixed   背景会固定在页面中，不会跟随元素移动
+
+                - background 背景相关的简写属性，
+                    所有背景相关的样式都可以通过该样式来设置并且该样式没有顺序要求，也没有哪个属性是必须要写的
+                        background-position/background-size
+                    注意
+                        background-size 必须写在background-position的后边并且使用/隔开
+                        background-origin background-clip两个样式，orgin要在clip的前边
+
+            
+             */
+            border: 10px double red;
+            padding:10px;
+            background-color: #bfa;
+            background-image: url("./img/1.png");
+            background-repeat: no-repeat;
+            background-position:left left ;
+            /* background-position:10px 10px; */
+            background-clip: content-box;
+            background-origin: padding-box;
+            /* background-size: contain; */
+
+            
+            
+        }
+        .box2{
+            width: 400px;
+            height: 400px;
+            border: 10px double red;
+            background:#bfa url("./img/2.jpg") no-repeat center/contain content-box content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>
