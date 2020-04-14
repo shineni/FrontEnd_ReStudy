@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景图片练习</title>
+    <!-- 
+        1. 超链接不同状态设置不同的背景切换
+        【遗留问题】短暂的空白，图片闪烁
+         - 原因： 
+            图片属于网页中的外部资源，外部资源需要浏览器单独发送请求加载
+                浏览器加载外部资源的时候是按需加载的，用则加载，不用则不加载
+                例如我们上面的练习link会首先加载，而hover和active会在指定状态接触时才会加载
+        【解决问题见下一章：将三种图片放到一张图片中，这样就只加载一次，完美避免图片闪烁问题】
+     -->
+    <style>
+        a:link{
+            /* 默认情况下超链接是不能设置宽高，所以我们必须要设置为块级元素,和背景图片一样大 */
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url("./imgs/link.png");
+        }
+        a:hover{
+            background-image: url("./imgs/hover.png");
+        }
+        a:active{
+            background-image: url("./imgs/active.png");
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;"></a>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            /* 
+                可以通过渐变设置一些复杂的背景颜色，可以是西安一个颜色向其他颜色过渡的效果
+                    【注意】渐变是图片，需要通过background-image来设置
+                
+                线性渐变，颜色沿着一条直线发生变化
+                    linear-gradient()
+
+                    linear-gradient(red,yellow)红色开头，黄色在结尾，中间时过渡区域
+                    - 线性渐变的开头，我们可以指定一个渐变的方向
+                        to left 
+                        to right
+                        to bottom 
+                        to top 
+                        deg deg表示读书
+                        turn 表示圈
+                
+                径向渐变（放射性效果）
+                    默认情况下径向渐变的形状根据元素的形状来计算的
+                        正方形--->圆形
+                        长方形--->椭圆
+                        我们也可以动手指定径向渐变的大小
+                        circle
+                        ellipse
+
+                    也可以指定渐变的位置
+                    - 语法
+                        radial-gradient(大小 at 位置， 颜色 位置， 颜色 位置，颜色 位置)
+                        大小：
+                            circle 圆形
+                            ellipse 椭圆
+                            closest-corner 近角
+                            faethest-side 远边
+                            fathest-corner 远角
+                        位置
+                            top right center left bottom
+
+
+             */
+
+             background-image: linear-gradient( red, yellow ,#bfa);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            /* background-image: linear-gradient(180deg, red, yellow ,#bfa); */
+            /* background-image: linear-gradient(red 50px, yellow 100px); */
+            /* 红色范围0-50px,黄色范围100-200px,渐变区域只有50px-100px */
+            background-image: repeating-linear-gradient(to right,red 50px, yellow 100px);
+        }
+        .space{
+            width: 50px;
+            height: 50px; 
+        }
+        .box3{
+            width: 300px;
+            height: 300px; 
+            background-image: radial-gradient(farthest-corner at 100px 100px, red,#bfa);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="space"></div>
+    <div class="box2"></div>
+    <div class="space"></div>
+    <div class="box3"></div>
+</body>
+</html>

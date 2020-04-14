@@ -1484,14 +1484,230 @@ fontawsome 使用步骤
 2. 截图后，想查看图片的具体信息F8
 
 ##### 2.2.5.4 背景
+- background-color 设置背景颜色
+- background-image 设置背景图片
+    【注意】路径不能直接写，要套上url(),里面可以写引号也可以不写
+    可以同时设置背景颜色和背景图片，这样别境颜色将会称为图片的背景色
+    - 如果背景的图片小于元素的大小，则背景图片会自动在元素中平铺，将元素填满
+    - 如果背景图片大于元素，将回一个部分背景无法完全显示
+    - 如果背景图片和元素一样大，则会正常显示
+- background-repeat 设置背景图片的重复样式
+    可选值
+        repeat 默认值，背景将会沿着x轴和y轴方向重复
+        repeat-x 沿着x轴方向重复
+        repeat-y 沿着y轴方向重复
+        no-repeat 背景图片
+- background-positon 用来这只背景图片的位置
+    设置方式：
+    - 通过top left right bottom center几个表示方位的词来设置背景图片的位置(坐标)
+        使用方位词时必须要同时指定两个值，如果只写一个则默认另外一个的值是center
+    - 通过偏移量来指定背景图片的位置
+        水平方向的偏移量 垂直方向的偏移量
+- background-clip 用来设置背景的范围
+    可选值：
+        border-box 默认值，背景会出现在边框的下面
+        padding-box 背景不会出现在边框，只出现内容区和内边距区
+        content-box 背景只会出现在内容区
+- background-origin 用来设置背景图片的偏移量计算的原点
+    可选值：
+        padding-box 默认值，background-positon从内边距处开始计算
+        content-box 背景图片的偏移量从内容区处计算
+        border-box 背景图片的偏移量从边框处开始计算
+- background-size 设置背景图片的大小（类比图片的宽高）
+	- 值
+        - 第一个值表示宽度
+        - 第二个值表示高度
+            - 如果只写一个，则第二个默认值是auto
+
+    - cover 图片比例不变，将元素铺满
+    - contain 图片比例不变，将图片在元素中完整显示
+- background-attachment 设置背景图片是否跟随元素移动
+    可选值
+        scroll 默认值 背景图片会跟随元素移动
+        fixed   背景会固定在页面中，不会跟随元素移动
+
+- background 背景相关的简写属性，
+    所有背景相关的样式都可以通过该样式来设置并且该样式没有顺序要求，也没有哪个属性是必须要写的
+     background-position/background-size
+    	【注意】
+        background-size 必须写在background-position的后边并且使用/隔开
+        background-origin background-clip两个样式，orgin要在clip的前边
+```
+    <title>Background</title>
+    <style>
+       .box1{
+            width: 400px;
+            height: 400px;
+            border: 10px double red;
+            padding:10px;
+            background-color: #bfa;
+            background-image: url("./img/1.png");
+            background-repeat: no-repeat;
+            background-position:left left ;
+            /* background-position:10px 10px; */
+            background-clip: content-box;
+            background-origin: padding-box;
+            /* background-size: contain; */
+
+        }
+        .box2{
+            width: 400px;
+            height: 400px;
+            border: 10px double red;
+            background:#bfa url("./img/2.jpg") no-repeat center/contain content-box content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+```
+- 渐变
+可以通过渐变设置一些复杂的背景颜色，可以是西安一个颜色向其他颜色过渡的效果
+      【注意】渐变是图片，需要通过background-image来设置
+	- 线性渐变，颜色沿着一条直线发生变化 linear-gradient()
+		- linear-gradient(red,yellow)红色开头，黄色在结尾，中间时过渡区域
+            - 线性渐变的开头，我们可以指定一个渐变的方向
+                to left
+                to right
+                to bottom
+                to top
+                deg deg表示读书
+                turn 表示圈
+	- 径向渐变（放射性效果）
+		- 默认情况下径向渐变的形状根据元素的形状来计算的
+            正方形--->圆形
+            长方形--->椭圆
+            我们也可以动手指定径向渐变的大小
+            circle
+            ellipse
+		- 也可以指定渐变的位置
+        	- 语法
+                radial-gradient(大小 at 位置， 颜色 位置， 颜色 位置，颜色 位置)
+                大小：
+                    circle 圆形
+                    ellipse 椭圆
+                    closest-corner 近角
+                    faethest-side 远边
+                    fathest-corner 远角
+                位置
+                    top right center left bottom
+
+```
+    <title>渐变</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient( red, yellow ,#bfa);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            /* background-image: linear-gradient(180deg, red, yellow ,#bfa); */
+            /* background-image: linear-gradient(red 50px, yellow 100px); */
+            /* 红色范围0-50px,黄色范围100-200px,渐变区域只有50px-100px */
+            background-image: repeating-linear-gradient(to right,red 50px, yellow 100px);
+        }
+        .space{
+            width: 50px;
+            height: 50px;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(farthest-corner at 100px 100px, red,#bfa);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="space"></div>
+    <div class="box2"></div>
+    <div class="space"></div>
+    <div class="box3"></div>
+</body>
+```
+
+##### 2.2.5.5 按钮练习：超链接不同状态设置不同的背景切换
+```
+    <title>背景图片练习</title>
+    <style>
+        a:link{
+            /* 默认情况下超链接是不能设置宽高，所以我们必须要设置为块级元素,和背景图片一样大 */
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url("./imgs/link.png");
+        }
+        a:hover{
+            background-image: url("./imgs/hover.png");
+        }
+        a:active{
+            background-image: url("./imgs/active.png");
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;"></a>
+</body>
+```
+【遗留问题】短暂的空白，图片闪烁
+ - 原因： 图片属于网页中的外部资源，外部资源需要浏览器单独发送请求加载
+    - 浏览器加载外部资源的时候是按需加载的，用则加载，不用则不加载
+    - 例如我们上面的练习link会首先加载，而hover和active会在指定状态接触时才会加载
+ - 【解决方案图片精灵：将三种图片放到一张图片中，这样就只加载一次，完美避免图片闪烁问题】
+ 	- 可以将多个小图片统一保存到一个大图片中，然后通过调整background-position来切换显示的图片，这样图片会同时加载到网页中，从而可以有效避免出现闪烁的问题
+    - 这个技术在网页中应用十分广泛，被称之为CSS-Sprite，这种图我们称之为雪碧图【把一堆图片存到一个图片里，然后通过修改positon来切换图片】
+
+雪碧图的使用步骤：
+1. 先确定要使用的图标
+2. 测量图标的大小
+3. 根据测量结果创建一个元素
+4. 将雪碧图设置为元素的背景图片
+5. 设置背景图片的偏移量以显示正确的图片
+
+雪碧图的特点：
+    一次性将多个图片加载进页面，降低请求的次数，加快访问速度，提升用户体验
+    【局限】只局限于背景图片
 
 
 
-
-
-
-
-
+```
+    <title>Document</title>
+    <style>
+        a:link{
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url("./imgs/btn.png");
+        }
+        a:hover{
+            background-position: -93px 0;
+        }
+        a:active{
+            background-position: -186px 0;
+        }
+        .logo{
+            width: 120px;
+            height: 46px;
+            background-image: url("./imgs/amazon-sprite_.png");
+        }
+        .shop-item{
+            height: 30px;
+            width: 42px;
+            background-image: url("./imgs/amazon-sprite_.png");
+            background-position: -58px -339px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;"></a>
+    <div class="logo"></div>
+    <div class="shop-item"></div>
+</body>
+```
 
 
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        【解决图片闪烁问题】
+        可以将多个小图片统一保存到一个大图片中，然后通过调整background-position来切换显示的图片
+        这样图片会同时加载到网页中，从而可以有效避免出现闪烁的问题
+        这个技术在网页中应用十分广泛，被称之为CSS-Sprite，这种图我们称之为雪碧图【把一堆图片存到一个图片里，然后通过修改positon来切换图片】
+        
+        雪碧图的使用步骤：
+            1. 先确定要使用的图标
+            2. 测量图标的大小
+            3. 根据测量结果创建一个元素
+            4. 将雪碧图设置为元素的背景图片
+            5. 设置背景图片的偏移量以显示正确的图片
+
+        雪碧图的特点：
+            一次性将多个图片加载进页面，降低请求的次数，加快访问速度，提升用户体验
+            【局限】只局限于背景图片
+    
+    -->
+    <style>
+        a:link{
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url("./imgs/btn.png");
+        }
+        a:hover{
+            background-position: -93px 0;
+        }
+        a:active{
+            background-position: -186px 0;
+        }
+        .logo{
+            width: 120px;
+            height: 46px;
+            background-image: url("./imgs/amazon-sprite_.png");
+        }
+        .shop-item{
+            height: 30px;
+            width: 42px;
+            background-image: url("./imgs/amazon-sprite_.png");
+            background-position: -58px -339px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;"></a>
+    <div class="logo"></div>
+    <div class="shop-item"></div>
+</body>
+</html>
