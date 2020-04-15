@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影卡片</title>
+    <link rel="stylesheet" href="../重置样式表/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <!-- 
+        steps
+        1.分析并写好结构
+            创建外层容器
+                创建图片容器
+                创建内容区容器
+                创建评分容器
+
+        2. 给外层容器设置样式
+            宽度
+            阴影
+        3. 给图片设置样式
+            宽度100% 和父元素一样款
+            【图片默认是基线对齐的】可以设置vertical-align:bottom
+        4. 给内容区设置样式
+            内边距
+     -->
+<style>
+    .outer{
+        width: 240px;
+        margin: 10px auto;
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+    }
+    .img-wrapper img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .info {
+        padding:0 18px;
+        margin: 12px 0;
+        color:#acaaaa;
+    }
+    .info .title{
+        font-size: 18px;
+        color:#717171;
+    }
+    .info .categroy{
+        font-size: 14px; 
+        margin:16px 0;    
+    }
+    .info .categroy i{
+        margin-right: 6px;
+    }
+    .info .description{
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .star-wrapper{
+        height: 46px;
+        line-height: 46px;
+        border-top: 1px solid rgb(233,233,233);
+    }
+    .star-wrapper .star{
+        float: left;
+        padding-left: 16px;
+        color: rgb(221,221,221);
+    }
+    .star-wrapper .star .higlight{
+        color:#fd8a53;
+    }
+    .star-wrapper .weixin{
+        float: right;
+        padding-right:33px;
+        color: #b9cb41;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="outer">
+        <div class="img-wrapper">
+            <img src="./imgs/beauty.png" alt="">
+        </div>
+        <div class="info">
+            <h2 class="title">Animation films</h2>
+            <h3 class="categroy"><i class="fas fa-map-marker-alt" ></i>Animations</h3>
+            <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati deserunt nostrum accusantium consequatur impedit. Hic sed quibusdam repellat aliquid aut esse molestias, id aspernatur, est iure tempora veritatis in quae!
+            </p>
+
+        </div>
+        <div class="star-wrapper">
+            <ul class="star">
+                <li class="fas fa-star higlight"></li>
+                <li class="fas fa-star higlight"></li>
+                <li class="fas fa-star higlight"></li>
+                <li class="fas fa-star higlight"></li>
+                <li class="fas fa-star "></li>
+
+            </ul>
+            <ul class="weixin">
+                <li class="fab fa-weixin"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
