@@ -1,0 +1,188 @@
+/* 主页index.html的样式表 */
+.topbar-wrapper{
+    width: 100%;
+    height: 40px;
+    /* 设置行高主要是为了让文字垂直居中 */
+    line-height: 40px;
+    background-color: #333;
+}
+.topbar a,
+.shop-cart i
+{
+    font-size: 12px;
+    color: #b0b0b0;
+    text-decoration: none;
+    display: inline-block;
+}
+/*
+------------------------------------Service---------------------------------------------------
+*/
+.service{
+    float: left;
+}
+.service li{
+    float: left;
+}
+.shop-cart{
+    float: right;
+}
+.seperate{
+    font-size: 12px;
+    color:#424242;
+    margin:0 8px;
+}
+.topbar a:hover{
+    color: #fff;
+}
+
+.app{
+  position: relative;
+}
+
+/* 
+注意设置渐进效果的时候：
+1.不能设置display:none 
+2. height设置为0 ，才能体现高度的变化
+3.overflow:hidden
+ */
+.app .qrcode{
+    position: absolute;
+    /* display: none; */
+    width: 124px;
+   
+    height: 0px;
+    overflow: hidden;
+    left: -40px;
+    /* background-color: silver; */
+    /* 
+    【注意为什么要设置行高】行高默认继承父元素，此处也就是1，所以会导致文本溢出
+    【文字居中】一定要在父元素中设置居中，设置元素本身位置没有用
+     */
+     line-height: 1;
+     text-align: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+     background-color: #fff;
+     /* transaction:用于样式设置过渡效果，这边的意思是高度从0-固定高度花费3s的时间 */
+     transition: height .3s;
+}
+/* 
+【方法1】【下载app hover后变化1，变化2请继续往下查找】 
+*/
+/* .app-wrapper:hover > .app .qrcode{
+display: block;
+} */
+/* 
+【方法2】
+*/
+.app:hover .qrcode,
+.app:hover::after{
+    display: block;
+    height: 148px;
+}
+
+.app .qrcode img{
+    width: 90px;
+    /* 水平居中 */
+   margin: 17px;
+}
+.app .qrcode span{
+    font-size: 14px;
+    color: #000;
+}
+
+/* 
+设置app下的小三角
+    1.如何设置一个三角
+    2.让它相对于下载app定位
+ */
+ /* 
+【方法1】【下载app hover后变化2，用方法2的时候需要注释这一段】 
+*/
+/* .app-wrapper:hover > .app::after{
+    position: absolute;
+    content:'';
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin: auto;
+
+ } */
+ .app::after{
+    position: absolute;
+    display: none;
+    content:'';
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin: auto;
+
+ }
+
+/* 
+-----------------------------------UserInfo------------------------------------------------------
+*/
+.userinfo{
+    float: right;
+}
+.userinfo li{
+    float: left;
+}
+
+
+/* 
+------------------------------------Shop-Cart-------------------------------------------------
+*/
+.shop-cart {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    margin-left: 25px;
+    background-color: #424242;
+    text-align: center;
+}
+.shop-cart i{
+    margin-right: 6px;
+}
+/* hover必须要绑定一个公共的父元素 */
+.shop-cart:hover a,
+.shop-cart:hover i
+{
+    color: #ff6700;
+    
+}
+.shop-cart:hover{
+    background-color: #fff;
+}
+.shop-detail{
+    position: absolute;
+    height: 0px;
+    overflow: hidden;
+    width: 316px;
+    background-color: #fff;
+    right:0;
+
+
+    font-size: 12px;
+    color:#424242;
+    box-shadow: 0 0 10px rgba(0, 0, 0,.3);
+}
+.shop-detail p{
+    line-height: 80px;
+}
+
+.shop:hover .shop-detail{
+    display: block;
+    height: 80px;
+    transition: height .2s;
+}
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格的样式</title>
+    <style>
+        /* 表格是一个块级元素 */
+        table{
+            /* 设置表格的宽度 */
+            width: 50%;
+            border: 1px solid black;
+            /* 设置单元格之间的间距,当设置为0的时候，其实是宽度是border的两倍，
+            如果只需要一倍的border，则需要设置border-collapse属性 */
+            /* border-spacing: 0px; */
+            border-collapse: collapse;
+
+        }
+        thead{
+            background-color: #bfa;
+        }
+        th,td{
+            /* td 默认情况西元素在td中是垂直居中的额，可以通过verticle-align设置，td也可以通过text-align设置水平居中 */
+            border : 1px solid black;
+            text-align: center;
+        }
+        /* 设置奇数行和偶数行颜色不一致 
+            伪类选择器，针对特殊的状态
+        */
+        /* tr:nth-child(2n){
+            background-color: #ddd;
+        } */
+    /* 如果表格中没有使用tbody而是直接使用tr,那么浏览器会自动创建一个tbody,并且将tr全部放到tbody中
+    所以tr 不是table的子元素 */
+    tbody > tr:nth-child(2n){
+            background-color: #ddd;
+        }
+
+/* 利用table的属性让box2在box1里面水平垂直居中 
+1.父元素设置dispaly:table-cell，并设置verticle-align;middle
+2.子元素设置水平居中
+*/
+        .box1{
+            height: 300px;
+            width: 300px;
+            background-color: #bfa;
+            /* 将父元素设置为单元格，也就是td里面能用的东西，box1都能用 */
+            display: table-cell;
+            /* 设置垂直居中 */
+            vertical-align: middle;
+                     
+        }
+        .box2  {
+            height: 50px;
+            width: 50px;
+            background-color: orange;
+            /* 居中 */
+            /* 设置水平居中 */
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>小孙</td>
+                <td>男</td>
+                <td>18</td>
+                <td>花果山</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>小猪</td>
+                <td>男</td>
+                <td>20</td>
+                <td>高老庄</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>小唐</td>
+                <td>男</td>
+                <td>16</td>
+                <td>女儿国</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>小沙</td>
+                <td>男</td>
+                <td>16</td>
+                <td>女儿国</td>
+            </tr>
+        </tbody>
+
+       
+    </table>
+    <div class="box1">
+        <div class="box2"> </div>
+    </div>
+</body>
+
+</html>

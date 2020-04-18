@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长表格</title>
+    <!-- 
+        好处是结构固定以后，和位置没有关系，tfooter可以放到最上面
+        th是头部取代tr的元素
+     -->
+    
+</head>
+<body>
+    <table border="1" width="50%">
+       <thead>
+           <tr>
+                <th>日期</th>
+                <th>收入</th>
+                <th>支出</th>
+                <th>合计</th>
+           </tr>
+       </thead>
+       <tbody>
+            <tr>
+                <td>2020.4.12</td>
+                <td>500</td>
+                <td>200</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>2020.4.13</td>
+                <td>600</td>
+                <td>200</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>2020.4.14</td>
+                <td>800</td>
+                <td>200</td>
+                <td>600</td>
+            </tr>
+            <tr>
+                <td>2020.4.15</td>
+                <td>300</td>
+                <td>200</td>
+                <td>100</td>
+            </tr>
+       </tbody>
+       <tfoot>
+           <tr>
+            <td></td>
+            <td></td>
+            <td>合计</td>
+            <td>1400</td>
+           </tr>
+       </tfoot>
+    </table>
+    
+</body>
+</html>

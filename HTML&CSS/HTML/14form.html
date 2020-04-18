@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+    <!-- 
+        表单：
+            - 在现实生活中表单用于提交数据
+            - 在网页也可以使用表单，网页中的而表单用于将本地的数据提交给远程的服务器
+            - 使用form标签来创建一个表单
+
+        Form 的属性
+            - action 指定表单要提交的服务器的地址
+        
+     -->
+</head>
+<body>
+    <form action="target.html">
+    <!-- 
+        表单项
+        autocomplete="off" 关闭自动补全
+            - 文本框
+                【注意】数据要提交到服务器中，必须要为元素指定一个name属性
+            - 密码框
+            - 提交按钮
+                - 通过value指定文字
+                - 通过type  区分text还是按钮
+            - 单选按钮
+                -通过name属性进行分组，如果name属性一样，那就是一组
+                - 像这种选择框，必须要指定一个value属性，value属性最终会作为用户填写的值传递给服务器
+                - checked可以将单选按钮设置为默认选中
+            - 多选框
+                - checked可以将单选按钮设置为默认选中
+            - 下拉列表
+                - selected可以将单选按钮设置为默认选中
+
+
+     -->
+     用户名：<input type="text" name="username">         <br>                   
+     密码：<input type="password" name="password"> <br>     
+     性别 <input type="radio" name="gender" value="male"> 男   
+     <input type="radio" name="gender" value="female">女<br>     
+     <input type="checkbox" name="test1" value="1" checked><br>     
+     <input type="checkbox" name="test2" value="2"><br>     
+     <input type="checkbox" name="test3" value="3"><br>     
+     <select name="haha" id="">
+         <option value="1">选项一</option>
+         <option value="2" selected>选项二</option>
+         <option value="3">选项三</option>
+     </select><br>     
+     <input type="submit"><br>     
+     <input type="reset"><br>  
+     <input type="button"><br>  
+<!--可能是用途最广的 -->
+     
+     <button type="submit"></button>
+     <button type="reset"></button>
+     <button type="button"></button>
+
+     <!-- 
+         http://127.0.0.1:5500/target.html?username=shine&password=123&gender=female&test1=1&haha=1
+      -->
+    </form>
+
+</body>
+</html>

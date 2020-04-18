@@ -354,6 +354,7 @@ img 这种元素属于替换元素（块和行内元素之间，具有两种元�
      <iframe src="https://www.qq.com"  width="800" height="600" frameborder="0"></iframe>
      <h1>内联框架</h1>
 ```
+
 #### 1.3.9 音频视频
  audio 标签用于向页面中引入一个外部的音频文件，音视频引入时，默认情况下不允许用户自己控制播放停止
 	属性
@@ -385,6 +386,15 @@ img 这种元素属于替换元素（块和行内元素之间，具有两种元�
 <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=v0033av0fcb" allowFullScreen="true"></iframe>
 </html>
 ```
+#### 1.3.10 表格
+- 在现实生活中，我们经常需要使用表格来表示一些格式化数据：课程表， 人名单，成绩单
+- 同样在网页中我们也需要使用表格，我们通过table标签来创建一个表格
+    table中使用tr表示表格中的一行，有几个tr就有几行
+    在tr中使用td表示一个单元格，有几个td就有几个单元格
+
+    rowspan 纵向合并单元格
+    colspan 横向合并单元格
+
 
 
 ## 2.CSS
@@ -1708,6 +1718,8 @@ fontawsome 使用步骤
     <div class="shop-item"></div>
 </body>
 ```
+【卡片练习】
+![PS处理图层.PNG](.\CSS\imgs\PS处理图层.PNG)
 
 
 
