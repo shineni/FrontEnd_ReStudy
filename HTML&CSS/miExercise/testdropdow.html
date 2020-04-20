@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        .main{
+            height: 50px;
+            width: 100px;
+            position: relative;
+        }
+        .chooseme .pic{
+            /* height: 25px; */
+            height: 0px;
+            width: 90px;
+            overflow: hidden;
+            /* width: 0px; */
+            position: absolute;
+            /* display: none; */
+        }
+        .chooseme .pic img{
+            width: 100%;
+        }
+        .chooseme:hover .pic{
+            display: block;
+            height: 90px;
+            transition: height 2s;
+        }
+        .chooseme:hover{
+            text-decoration: none;
+            color: red;
+        }
+
+        .picregion{
+            position: relative;
+            float: left;
+            height: 55px;
+            width: 55px; 
+            overflow: hidden;
+            background-color: red;
+            margin-top: 50px;
+        }
+        .picregion a{
+            /* display: block; */
+            height: 55px;
+            width: 55px;
+            background-color: red;
+            position: absolute;
+        }
+        .picregion  .home{
+            background-image: url("/imgs/mi-home.png");
+            background-position: center;
+            left: 55px;
+        }
+        .picregion .mi{
+            background-image: url("/imgs/mi-logo.png");
+            background-position: center;
+        } 
+        .picregion:hover .mi{
+            left: -55px;
+            transition: left 2s;
+        }
+        .picregion:hover .home{
+            left: 0px;
+            transition: left 2s;
+        }
+        /* .picregion  a{
+            position: absolute;
+        }
+        .picregion  .home{
+            background-image: url("/imgs/mi-home.png");
+            background-position: center;
+            left: -55px;
+        }
+        .picregion .mi{
+            background-image: url("/imgs/mi-logo.png");
+            background-position: center;
+        } */
+        .search-box{
+            margin-top:130px;
+            height: 50px;
+            width: 296px;
+            background-color: #bfa;
+        }
+        .search-box .text-input{
+            float: left;
+            box-sizing: border-box;
+            padding:10px;
+            width: 244px;
+            height: 50px;
+            border: 1px solid rgb(224, 224, 224);
+            outline: none;
+            
+        }
+        .search-box .button-input{
+            float: left;
+            box-sizing: border-box;
+            height: 50px;
+            width: 52px;
+            border: 1px solid rgb(224, 224, 224);
+            border-left:none
+            
+        }
+        .search-box .text-input:focus,
+        .search-box .text-input:focus + .button-input {
+            border-color: #FF6700;
+        }
+
+        .search-box .button-input:hover{
+            border: none;
+            background-color: #FF6700;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="main">
+            <a class="chooseme" href="javascript:;">选我哦
+                <div class="pic">
+                    <img src="./imgs/qrcode.png" alt="">
+                </div>
+            </a>
+
+
+        </div>
+        <div class="picregion">
+            <a class="home" href="/"></a>
+            <a class="mi" href="/"></a>
+        </div>
+        <div class="search-box">
+            <form action="">
+                <input class ="text-input" type="text">
+                <button class="fas fa-search button-input"></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
