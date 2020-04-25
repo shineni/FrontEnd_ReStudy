@@ -311,7 +311,7 @@ display: block;
         position: absolute;
         height: 460px;
         width: 234px;
-        background-color:#bfa;
+        background-color:rgba(0, 0, 0, .6);
         left: -140px;
     }
     .all-goods li{
