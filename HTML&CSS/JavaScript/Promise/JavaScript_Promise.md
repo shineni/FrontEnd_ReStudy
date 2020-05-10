@@ -152,14 +152,48 @@ console.log('setTimeout()之后')
 ![async.PNG](.\PromiseImgs\async.PNG)
 
 ### 2.3 如何使用Promise
-#### 2.3.1 API 
+#### 2.3.1 API
+(搞清楚语法，语法是啥？如果是函数，知道函数的参数有哪些，函数干嘛用的。如果是对象，搞清楚有哪些属性和方法，并且知道这些属性和方法都是干嘛用的，如果是函数)
 1. Promise 构造函数：Promise(excutor){}
-	(1)excutor函数：执行器(resolve,reject)=>{}
+	(1)excutor函数：同步执行 (resolve,reject)=>{}
     (2)resolve函数：内部定义成功时我们调用的函数value=>{}
     (3)reject函数：内部定义失败时我们调用的函数 reason=>{}
     说明：excutor会在Promise内部立即同步回调，异步操作在执行器中执行
-2. Promise.prototype.then方法：
-
+2. Promise.prototype.then方法：（onResolved,onRejected）={}
+	(1)onResolved函数：成功的回调函数 （value）=>{}
+    (2)onRejected函数：失败的回调函数  (reason)=>{}
+    说明：指定用于得到成功value的成功回调和用于得到失败的reason的失败回调
+    	**返回一个新的Promise对象**
+3. Promise.prototype.catch方法： （onRejectd）=>{}
+	onrejected函数：失败的回调函数（reason）=>{}
+    说明： then的语法糖，相当于： then(undefined,onrejected)
+4. Promise.resolve方法：(value)=>{}
+	value：成功的数据或promise对象
+    说明：返回一个成功/失败的promise对象
+5. Promise.reject方法： (reason)=>{}
+	reason:失败的原因
+    说明：返回一个失败的promise对象
+6. Promise.all方法： (promises)=>{}
+	promises: 包含n个promise的数组
+    说明：返回一个新的promise,只有所有的promise都成功才成功，只要有一个失败了就直接失败
+7. Promise.race方法：(promises)=>{}
+	promises: 包含n个promise的数组
+    说明：返回一个新的promise,第一个完成的promise的结果状态就是最终的结果状态
+#### 2.3.2几个关键问题
+1. 如何改变promise的状态？
+	(1) resolve(value):如果当前是Pending就会变为resolved
+    (2)rejecte（reason）:如果当前是Pending就会变成rejected
+    (3)抛出异常：如果当前是pending就会变成rejected
+2. 一个promise指定多个成功/失败回调函数，都会调用嘛？
+	当promise改变为对应状态是都会调用
+3. 改变promise砖头和指定回调函数谁先谁后？
+	(1)都有可能，正常情况下是先指定回调再改变状态，但是也可以先改状态，再指定回调
+    (2)如何先改变状态在指定回调？
+		a.在执行器中直接调用resolve()/reject()
+        b.延迟更长时间才调用then()
+    (3)什么时候才能得到数据？
+    	a. 如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据
+        b.如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据
 ## 3.自定义(手写)Promise
 ## 4.async与awiat
 ## 5.JS异步之宏队列与微队列
