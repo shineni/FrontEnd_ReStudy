@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>   
+    /*
+    3. 改变promise砖头和指定回调函数谁先谁后？
+	(1)都有可能，正常情况下是先指定回调再改变状态，但是也可以先改状态，再指定回调
+    (2)如何先改变状态在指定回调？
+		a.在执行器中直接调用resolve()/reject()
+        b.延迟更长时间才调用then()
+    (3)什么时候才能得到数据？
+    	a. 如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据
+        b.如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据
+    */ 
+    //常规：先指定回调函数，后改变状态   
+        new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve(1)  //后改变的状态（同时指定数据），异步执行回调函数
+            }, 1000);
+        }).then(            //先指定回调函数，保存当前指定的回调 函数
+            value=>{},
+            reason=>{console.log("reason",reason)}
+        )
+    //先改变砖头，后指定回调函数
+        new Promise(()=>{
+            resolve(1)  //先改变状态（同时指定数据）
+        }).then(        //后指回调函数，异步执行回调函数
+            value=>{console.log("value2",value)},
+            reason=>{console.log("reason2",reason)}
+            )
+        console.log("-----------")
+    // 【注意】
+    // 同步执行：改状态以及.then是同步执行的 line30 和line32
+    // 异步执行： line33和line34, 如何验证，在line36写个打印输出，如果value2在line36后面输出则是异步
+    // 异步执行的代码需要放入队列，JS引擎把初始化的代码都执行完以后，才执行回调代码，才执行回调队列里面的
+    // Promise无论是成功还是失败的回调函数永远是异步执行的，即使条件满足了也不是马上执行，但是指定具体成功还是失败的回调函数是同步执行的，
+
+
+    //方式3
+        const p = new Promise((resolve,reject)=>{
+            setTimeout((resolve,reject) => {
+                resolve(1)
+            }, 1000);
+        })
+        setTimeout(() => {
+           p.then(
+               value=>{console.log("value3",value)},
+               reason=>{console.log("reason3",reason)}
+           ) 
+        }, 2000);
+    </script>
+</body>
+</html>

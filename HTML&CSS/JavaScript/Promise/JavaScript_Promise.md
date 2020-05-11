@@ -179,22 +179,72 @@ console.log('setTimeout()之后')
 7. Promise.race方法：(promises)=>{}
 	promises: 包含n个promise的数组
     说明：返回一个新的promise,第一个完成的promise的结果状态就是最终的结果状态
+
 #### 2.3.2几个关键问题
 1. 如何改变promise的状态？
 	(1) resolve(value):如果当前是Pending就会变为resolved
     (2)rejecte（reason）:如果当前是Pending就会变成rejected
     (3)抛出异常：如果当前是pending就会变成rejected
+
 2. 一个promise指定多个成功/失败回调函数，都会调用嘛？
 	当promise改变为对应状态是都会调用
+
 3. 改变promise砖头和指定回调函数谁先谁后？
 	(1)都有可能，正常情况下是先指定回调再改变状态，但是也可以先改状态，再指定回调
     (2)如何先改变状态在指定回调？
-		a.在执行器中直接调用resolve()/reject()
-        b.延迟更长时间才调用then()
+	a.在执行器中直接调用resolve()/reject()
+    b.延迟更长时间才调用then()
     (3)什么时候才能得到数据？
-    	a. 如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据
-        b.如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据
+     a.如果先指定的回调，那当状态发生改变时，回调函数就会调用，得到数据
+     b.如果先改变的状态，那当指定回调时，回调函数就会调用，得到数据
+4. promise.then()返回的新promise的结果状态由什么决定？
+	(1)简单表达：由then()指定的回调函数执行的结果决定
+    (2)详细表达：
+    a.如果抛出异常，新promise变为rejected,reason为抛出的异常
+    b.如果返回的是非promise的任意值，新promise变为resolved,value为返回的值
+    c.如果返回的是另一个新promise,此promise的结果就会成为新promise的结果
+
+5.
+
 ## 3.自定义(手写)Promise
 ## 4.async与awiat
 ## 5.JS异步之宏队列与微队列
 ## 6.Promise相关面试题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

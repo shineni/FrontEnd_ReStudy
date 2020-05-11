@@ -7,60 +7,24 @@
 </head>
 <body>
     <script>      
-    /*
-    1. Promise构造函数： Promise(excutor){}
-    Promise.all方法：(promises)=>{}
-        promises: 包含n个promise的数组
-        说明：返回一个新的promise，只有所有的promise都成功才成，只要有一个失败了就直接失败
-    */ 
-    //new Promise(构造器(该构造器传两个参数))
-    new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            resolve('成功数据');
-            reject('失败数据');//没有作用，因为状态只能改变一次
-        }, 1000);
-    }).then(
-        value=>{
-            console.log("onResolved()1",value)
-        }
-    ).catch(
-        reason=>{
-            console.log("onRejected()1",reason)
-        }
-    )
-
-    //产生一个成功值为1的Promise对象
-    const p1 = new Promise((resolve,reject)=>{
-        resolve(1)
-    })
-    const p2 = Promise.resolve(2);
-    const p3 = Promise.reject(3);
-    p1.then(value=>{console.log(value)})
-    p2.then(value=>{console.log(value)})
-    p3.then(null,reason=>{console.log(reason)})
-    p3.catch(reason=>{console.log(reason)})
-    
-
-    const pALL = Promise.all([p1,p2,p3])
-    pALL.then(
-        values=>{
-            console.log("all onResolved()",values)  //values返回的顺序和promises数组的顺序一致
-        },
-        reason=>{
-            console.log('all onRejected',reason)
-        }
-    )
-
-    const pRace = Promise.race([p1,p2,p3])
-    pRace.then(
-        value=>{
-            console.log("all onResolved()",value)  
-        },
-        reason=>{
-            console.log('all onRejected',reason)
-        }
-    )
-
+        const p = new Promise((resolve,reject)=>{
+            // resolve(1)//promise变为resolve成功状态
+            // reject(2)//promise变为rejected失败状态
+            // throw new Error('出错了') //抛出异常，promise变为rejected失败状态，reason为抛出的error
+            throw 3 //抛出异常，promise变为rejected失败状态，reason为抛出的3
+        })
+        p.then(
+            value=>{},
+            reason=>{
+                console.log("reason",reason)
+            }
+        )
+        p.then(
+            value=>{},
+            reason1=>{
+                console.log("reason1",reason1)
+            }
+        )
 
     </script>
 </body>
