@@ -173,6 +173,56 @@ margin-left + border-left + padding-left + width + padding-right + border-right 
 - **1.7 图片精灵CSS-Sprite**
 	将多个小图片统一保存到一个大图片中，然后通过调整background-position来切换显示的图片，这样图片会同时加载到网页中，从而可以有效避免出现闪烁的问题，这个技术在网页中应用十分广泛，被称之为CSS-Sprite，这种图我们称之为雪碧图
 
+### 2. JS
+#### 2.1 函数Function的apply bind 和 call
+ call()方法的作用和 apply() 方法类似，区别就是call()方法接受的是参数列表，而apply()方法接受的是一个参数数组。
+ - call& apply
+	- 语法 dunc.apply(thisArg,[argsArray])
+ - bind
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

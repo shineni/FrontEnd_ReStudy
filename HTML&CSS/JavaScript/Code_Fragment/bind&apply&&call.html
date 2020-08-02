@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Function.prototype.apply()
+        Function.prototype.call()
+        Function.prototype.bind()
+        **************你需要知道的几点***************************
+        1. 函数对象：函数作为对象使用
+        2. 实例对象(对象)： new函数产生的对象
+            function Fn(){
+                console.log("汪汪汪")
+            }
+            const fn = new Fn();        //Fn是构造函数 fn是实例对象（对象）
+            console.log(Fn.prototype);  //Fn函数对象
+            Fn.bind({});                //只有函数对象才有bind, call ,apply方法，在Function的原型上面定义，Fn是函数对象
+        - Function.prototype的返回值是什么？ 构造函数是Function的函数对象
+        - Function.prototype.apply(), Function.prototype.call(),Function.prototype.bind() 三个表达式能读到什么信息?
+            只有函数对象才有bind, call ,apply方法
+
+        3.函数调用
+        function Fn(){
+            console.log("汪汪汪")
+        }
+
+        undefined
+        Fn()
+        VM239:2 汪汪汪
+        undefined
+        var f  = new Fn()
+        VM239:2 汪汪汪
+            
+
+        *****************apply(来自MDN)**********************************
+        1.语法：func.apply(thisArg, [argsArray])
+            - thisArg 在func运行时使用的this值（必选）
+                - 严格模式下
+                - 非严格模式下：将指定为null或者undefined时自动替换为指向全局对象，自动包装原始值
+            - argsArray（可选）
+                一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 func 函数。
+                如果该参数的值为 null 或  undefined，则表示不需要传入任何参数。从ECMAScript 5 开始可以使用类数组对象。 
+        2.作用：函数调用，改变this的指向
+            apply() 方法调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数。
+            - 调用的函数是this值的函数
+            - 参数：数组或者类数组
+
+        *****************call(来自MDN)**********************************
+        1.语法：func.call(thisArg[,arg1,arg2...]])
+        2.使用场景
+            call() 允许为不同的对象分配和调用属于一个对象的函数/方法。
+            call() 提供新的 this 值给当前调用的函数/方法。
+            你可以使用 call 来实现继承：写一个方法，然后让另外一个新的对象来继承它（而不是在新对象中再写一次这个方法）
+
+
+
+
+        *****************bind(来自MDN)**********************************
+        1.语法： function.bind(thisArg[, arg1[, arg2[, ...]]])
+            - 参数
+            - 返回值： 返回一个原函数的拷贝，并拥有指定的 this 值和初始参数
+
+
+
+        
+        
+        
+        */
+
+
+        var test = {
+            a : 5,
+            b : 6,
+            sum : function (a,b) {
+                var self = this;
+                function getA() {
+                    return self.a;
+                }
+                function getB(){
+                    return self.b;
+                }
+                alert(a);
+                alert(b);
+                return getA() + getB();
+            }
+        }
+        var obj = {a:2,b:3};
+        alert(test.sum.call(obj,4,5));      // 调用时self = this = obj，alert顺序4,5,5
+        alert(test.sum.apply(obj,[6,7]));   // 调用时self = this = obj，alert顺序6,7,5
+        var sum = test.sum.bind(obj,8);     // 此处返回一个只有一个参数的函数sum（b）
+        alert(sum(9)); 
+    </script>
+</body>
+</html>
